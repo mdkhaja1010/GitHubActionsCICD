@@ -1,0 +1,29 @@
+# Reports
+reports/
+**/reports/
+
+# Generated files
+*.xml
+*.css
+*.html
+*.class
+
+# Java build output
+target/
+bin/
+out/
+
+# Logs
+*.log
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+.classpath
+.project
+.settings/
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,50 @@
+stages:
+  - build
+  - archive
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+
+cache:
+  paths:
+    - .m2/repository
+
+build-job:
+  stage: build
+  tags:
+    - windows
+  timeout: 30m  # or longer if needed
+  script:
+      - echo "✅ Runner is working!"
+      - echo "🔧 Setting JAVA_HOME and updating PATH..."
+      - $env:JAVA_HOME = "C:\Program Files\Java\jdk-17"
+      - $env:Path = "$env:JAVA_HOME\bin;$env:Path"
+      - echo "✅ Verifying Java and Maven installation..."
+      - Get-Command java
+      - Get-Command mvn
+      - java -version
+      - mvn -v
+      - if (-not (Test-Path "reports")) { mkdir reports }
+      - echo "🧪 Running Maven tests..."
+      - mvn clean test
+
+  artifacts:
+    when: always
+    paths:
+      - reports/
+      - target/surefire-reports/
+    expire_in: 1 week
+
+archive-test-results:
+  stage: archive
+  needs: ["build-job"]
+  tags:
+    - windows
+  script:
+    - echo "📁 Archiving test results..."
+  artifacts:
+    when: always
+    paths:
+      - reports/
+      - target/surefire-reports/
+    expire_in: 1 week
