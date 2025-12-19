@@ -165,7 +165,6 @@ public class StaffAPIS {
         Assert.assertTrue(utils.statuscodeValid(statuscode, 204, false), "status code missmatch");
         logger.info("Staff deleted successfully.");
         System.out.println("-----------------------Deleted staff Record----------------------");
-        //working of te API's
 
     }
 
