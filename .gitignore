@@ -1,6 +1,7 @@
-# Reports
-reports/
-**/reports/
+# Test output reports (NOT source code packages)
+target/surefire-reports/
+target/site/
+allure-results/
 
 # Generated files
 *.css
