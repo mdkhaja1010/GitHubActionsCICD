@@ -1,0 +1,35 @@
+name: CICD integrations
+
+on:
+  push:
+    branches:
+      - main   # Trigger workflow only on pushes to main branch
+
+jobs:
+  build:
+    runs-on: Test123
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Build and Test with Maven
+      run: mvn clean test
+
+  archive-test-results:
+    needs: build
+    runs-on: Test123
+    if: always()  # This ensures the job runs even if 'build' fails
+    steps:
+    - name: Archive Test Results
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-reports
+        path: ./reports/
