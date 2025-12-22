@@ -164,7 +164,7 @@ public class StaffAPIS {
         int statuscode = response.getStatusCode();
         Assert.assertTrue(utils.statuscodeValid(statuscode, 204, false), "status code missmatch");
         logger.info("Staff deleted successfully.");
-        System.out.println("-----------------------Deleted staff Record----------------------");
+        System.out.println("-----------------------Deleted staff Record in the DB----------------------");
 
     }
 
