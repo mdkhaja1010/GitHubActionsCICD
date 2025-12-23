@@ -99,9 +99,9 @@ public class IRCTCFromTO {
 				break;
 			}
 		}
-		/*driver.findElement(By.xpath("//*[contains  (text(), 'Search')]")).click();
+		driver.findElement(By.xpath("//*[contains  (text(), 'Search')]")).click();
 		Thread.sleep(3000);
-		driver.findElement(By.xpath("//strong[contains(text(), 'Sleeper')]/parent::div/following-sibling::div//span[@class='fa fa-repeat']")).click();*/
+		driver.findElement(By.xpath("//strong[contains(text(), 'Sleeper')]/parent::div/following-sibling::div//span[@class='fa fa-repeat']")).click();
 		driver.quit();
 		
 
