@@ -1,32 +1,10 @@
 pipeline {
     agent any
-
-    tools {
-        jdk 'jdk17'
-        maven 'maven3'
-    }
-
     stages {
-
-        stage('Checkout Code') {
+        stage('Proof') {
             steps {
-                checkout scm
+                echo 'JENKINSFILE IS EXECUTING'
             }
-        }
-
-        stage('Build and Test') {
-            steps {
-                bat 'java -version'
-                bat 'mvn -v'
-                bat 'mvn clean test'
-            }
-        }
-    }
-
-    post {
-        always {
-            echo 'Saving test reports'
-            archiveArtifacts artifacts: 'reports/**'
         }
     }
 }
