@@ -18,7 +18,7 @@ public class ExtentReportManager {
             extent.setSystemInfo("Tester", "Khaja");
             extent.setSystemInfo("Environment", "Localhost");
         }
-        return extent;
+        return extent;//new code added in the gitlab if you have doubts please go throught the gitlab repo
     }
 
 }
