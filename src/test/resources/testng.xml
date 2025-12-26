@@ -8,6 +8,7 @@
 		<classes>
 			<class name="programs.EmployeesAPIS" />
 			<class name="programs.StaffAPIS" />
+			<class name="programs.IRCTCFromTO"/>
 		</classes>
 	</test> <!--
 	Test -->
